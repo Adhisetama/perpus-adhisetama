@@ -94,7 +94,6 @@
     box-sizing: border-box;
     position: relative;
     top: -13vh;
-    min-height: 250px;
 }
 
 .intro-banner h2 {
@@ -111,28 +110,37 @@
 .intro-banner div.sub-intro {
     width: 47%;
     float: left;
+    box-sizing: border-box;
 }
 
 .intro-banner .left {
     text-align: right;
     margin-right: 3%;
+    padding-left: 10%;
 }
 
 .intro-banner .right {
     text-align: left;
-    margin-left: 3%;}
-
-/* .intro-banner .left {
-    width: 30%;
-    text-align: right;
-    position: absolute;
-    right: 52%;
+    margin-left: 3%;
+    padding-right: 10%;
 }
-    
-.intro-banner .right {
-    width: 30%;
-    text-align: left;
-    position: absolute;
-    left: 52%;
-} */
 
+.intro-banner .right ul {
+    list-style-type: disc;
+}
+
+.intro-banner .carrousel {
+    width: 55%;
+    height: 400px;
+    margin: 50px auto;
+    background-color: lightgray;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0,0,0,.5);
+    overflow: hidden;
+    text-align: center;
+}
+
+.carrousel img {
+    height: 100%;
+    margin: auto;
+}
