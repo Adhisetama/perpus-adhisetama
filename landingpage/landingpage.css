@@ -1,3 +1,5 @@
+/* navigation bar */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -5,8 +7,10 @@
     right: 0;
     height: 60px;
     background-color: rgb(37, 37, 37);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    box-shadow: 0 3px 10px rgba(0,0,0,.6);
     align-items: center;
+    overflow: hidden;
+    padding-top: 5px;
 }
 
 .navbar a {
@@ -19,18 +23,28 @@
 }
 
 .navbar a:hover {
-    text-shadow: 0 0 5px rgba(255,255,255,0.6);
+    text-shadow: 0 0 5px rgba(255,255,255,.6);
 }
 
 .navbar .navbar-catalog {
     font: 100 22px/60px Roboto, sans-serif;
-    margin-left: 20%;
+    margin-left: 10%;
 }
 
+.navbar-menu {
+    float: right;
+    margin-right: 15%;
+    display: inline;
+}
 
 .navbar .navbar-login {
-    height: 18px;
+    height: 54px;
     width: 100px;
-    border-radius: 9px;
+    border-radius: 27px;
     background-color: rgb(29, 155, 194);
 }
+/* note: tambahi responsive header di width<900px! */
+
+
+/* content */
+
