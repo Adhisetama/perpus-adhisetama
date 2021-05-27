@@ -23,7 +23,7 @@
 }
 
 .navbar a:hover {
-    text-shadow: 0 0 8 px rgba(255,255,255,.6);
+    text-shadow: 0 0 8px rgba(255,255,255,.6);
 }
 
 .navbar .navbar-catalog {
@@ -100,7 +100,7 @@
 .intro-banner h2 {
     font-size: 35px;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 .intro-banner h3 {
@@ -108,7 +108,21 @@
     margin-bottom: 10px;
 }
 
+.intro-banner div.sub-intro {
+    width: 47%;
+    float: left;
+}
+
 .intro-banner .left {
+    text-align: right;
+    margin-right: 3%;
+}
+
+.intro-banner .right {
+    text-align: left;
+    margin-left: 3%;}
+
+/* .intro-banner .left {
     width: 30%;
     text-align: right;
     position: absolute;
@@ -120,5 +134,5 @@
     text-align: left;
     position: absolute;
     left: 52%;
-}
+} */
 
