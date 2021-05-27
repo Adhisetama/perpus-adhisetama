@@ -11,6 +11,7 @@
     align-items: center;
     overflow: hidden;
     padding-top: 5px;
+    z-index: 1;
 }
 
 .navbar a {
@@ -83,6 +84,9 @@
     align-items: center;
 }
 
+
+/* banner */
+
 .intro-banner {
     background-color: white;
     box-shadow: 0 5px 20px rgba(0,0,0,.4);
@@ -143,4 +147,112 @@
 .carrousel img {
     height: 100%;
     margin: auto;
+}
+
+
+/* pustaka pilihan */
+
+.intro-pustaka {
+    width: 65%;
+    margin: -5vh auto 0;
+    align-items: center;
+    padding-bottom: 70px;
+}
+
+.uni-pustaka h2 {
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.uni-pustaka .pustaka {
+    width: 23%;
+}
+
+.uni-pustaka .pustaka div, .uni-pustaka .pustaka-2 div {
+    height: 300px;
+    width: 90%;
+    margin: auto;
+    background-color: rgb(194, 194, 194);
+    border-radius: 5px;
+    text-align: center;
+    font: 400 100px/300px Roboto, sans-serif;
+    box-shadow: 0 5px 5px rgba(0,0,0,.3);
+    color: rgb(77, 77, 77);
+}
+
+.uni-pustaka .pustaka p {
+    color: red;
+    font: 400 17px Roboto, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px auto 10px;
+}
+
+.uni-pustaka .pustaka p.judul-artikel, .uni-pustaka .pustaka-2 p.judul-artikel {
+    text-align: center;
+    margin: 10px auto;    
+}
+
+.uni-pustaka .pustaka a {
+    font: 300 20px 'Roboto Slab', serif;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: rgb(77, 77, 77);
+}
+
+
+/* pustaka terlaris */
+
+.pustaka-terlaris-container {
+    background-image: url(../assets/rak-buku.jpg);
+    background-repeat: none;
+    background-size: cover;
+    background-position-y: 300px;
+    width: 100%;
+}
+
+.pustaka-terlaris {
+    width: 65%;
+    align-items: center;
+    margin: auto;
+    padding: 40px 0 70px;
+    color: white;
+}
+
+.uni-pustaka .pustaka-2 {
+    width: 23%;
+}
+
+.uni-pustaka .pustaka-2 p {
+    color: white;
+    font: 400 17px Roboto, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px auto 10px;
+}
+
+.uni-pustaka .pustaka-2 a {
+    font: 300 20px 'Roboto Slab', serif;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: white;
+}
+
+
+/* pustaka terbaru */
+
+.pustaka-terbaru-container {
+    background-color: rgb(231, 231, 231);
+    background-repeat: none;
+    background-size: cover;
+    background-position-y: 300px;
+    width: 100%;
+}
+
+.pustaka-terbaru {
+    width: 65%;
+    align-items: center;
+    margin: 0 auto 40px;
+    padding: 40px 0 70px;
+    color: rgb(77, 77, 77);
 }

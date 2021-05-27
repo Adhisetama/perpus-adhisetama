@@ -63,3 +63,15 @@ table {
 div.clear {
 	clear: both;
 }
+
+
+/* flexbox */
+.flex-container {
+	display: flex;
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
