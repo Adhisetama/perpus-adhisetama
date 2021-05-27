@@ -1,0 +1,36 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: rgb(37, 37, 37);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    align-items: center;
+}
+
+.navbar a {
+    font: 400 15px/60px Roboto, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.navbar a:hover {
+    text-shadow: 0 0 5px rgba(255,255,255,0.6);
+}
+
+.navbar .navbar-catalog {
+    font: 100 22px/60px Roboto, sans-serif;
+    margin-left: 20%;
+}
+
+
+.navbar .navbar-login {
+    height: 18px;
+    width: 100px;
+    border-radius: 9px;
+    background-color: rgb(29, 155, 194);
+}
