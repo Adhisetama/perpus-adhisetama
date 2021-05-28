@@ -59,6 +59,15 @@ table {
 }
 
 
+/* my own personal reset */
+/* a {
+	text-decoration: none;
+	color: inherit;
+}
+  (disable karena malah bikin repot)
+*/
+
+
 /* manual clear float */
 div.clear {
 	clear: both;
@@ -73,5 +82,11 @@ div.clear {
 .flex-center {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+}
+
+.flex-baseline {
+	display: flex;
+	align-items: baseline;
 	justify-content: space-between;
 }
