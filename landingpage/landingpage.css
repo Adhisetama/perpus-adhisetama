@@ -179,6 +179,7 @@
     font: 400 85px/250px Roboto, sans-serif;
     box-shadow: 0 5px 5px rgba(0,0,0,.3);
     color: rgb(77, 77, 77);
+    overflow: hidden;
 }
 
 .uni-pustaka .pustaka p {
@@ -419,9 +420,10 @@
 
 .footer .copyright {
     width: 100%;
-    padding: 15px 0;
+    padding: 20px 0;
     background-color: rgb(77, 77, 77);
     font: 300 20px Roboto, sans-serif;
+    background-image: linear-gradient(to bottom, rgb(58, 58, 58), rgb(77,77,77));
 }
 
 /* tambahan */

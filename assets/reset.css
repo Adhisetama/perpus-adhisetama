@@ -1,3 +1,5 @@
+/* oleh: Azka Adhisetama */
+
 /* micro clearfix float */
 .cf:before,
 .cf:after {
@@ -60,12 +62,11 @@ table {
 
 
 /* my own personal reset */
-/* a {
+a.no-dec {
 	text-decoration: none;
 	color: inherit;
 }
-  (disable karena malah bikin repot)
-*/
+
 
 
 /* manual clear float */
@@ -82,7 +83,8 @@ div.clear {
 .flex-center {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+	text-align: center;
 }
 
 .flex-baseline {
