@@ -92,3 +92,33 @@ div.clear {
 	align-items: baseline;
 	justify-content: space-between;
 }
+
+.flex-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* floats */
+
+.fleft {
+	float: left;
+}
+
+.fright {
+	float: right;
+}
+
+/* positions */
+
+.pos-rel {
+	position: relative;
+}
+
+.pos-abs {
+	position: absolute;
+}
+
+.pos-fixed {
+	position: fixed;
+}
