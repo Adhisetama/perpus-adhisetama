@@ -65,6 +65,7 @@ table {
 a.no-dec {
 	text-decoration: none;
 	color: inherit;
+	text-transform: none;
 }
 
 

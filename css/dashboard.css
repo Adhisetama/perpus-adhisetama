@@ -6,8 +6,8 @@ body {
 
 .main {
   margin-left: 300px;
-  -webkit-transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
-  transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  -webkit-transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -21,8 +21,8 @@ body {
   opacity: 0;
   cursor: pointer;
   z-index: 1;
-  -webkit-transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
-  transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  -webkit-transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
 }
 
 #toggle-side:checked {
@@ -44,6 +44,7 @@ body {
 
 #toggle-side:checked ~ .sidebar {
   width: 100px;
+  background-position-x: -100px;
 }
 
 .main header {
@@ -147,6 +148,77 @@ body {
           box-shadow: 2px 8px 10px -5px #00bbd46c;
 }
 
+.card .card-content {
+  margin: 25px 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr (2.5fr)[2];
+      grid-template-columns: 1fr repeat(2, 2.5fr);
+  -ms-grid-rows: 50px auto;
+      grid-template-rows: 50px auto;
+      grid-template-areas: 'pic header header' 'pic cv1 cv2';
+}
+
+.card .card-content .profpic {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: pic;
+  width: 90%;
+  height: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 8px 10px -5px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 8px 10px -5px rgba(0, 0, 0, 0.2);
+  background-image: url(../../../assets/perpustakaan.jpg);
+}
+
+.card .card-content .cv-head {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+  font: 300 14px Roboto, Helvetica, arial, sans-serif;
+  font-size: 25px;
+}
+
+.card .card-content .prime-cv {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: cv1;
+}
+
+.card .card-content .sec-cv {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: cv2;
+}
+
+.card table tr td {
+  font: 300 14px Roboto, Helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  padding: 5px;
+  text-transform: capitalize;
+}
+
+.card table tr td.td-blue {
+  color: #00bcd4;
+}
+
+.card table tr td.td-red {
+  color: red;
+}
+
+.card table tr td .aktif {
+  font-weight: 700;
+  color: white;
+  font-size: 10px;
+  background-color: #4dad4d;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
 .sidebar {
   width: 300px;
   background-color: white;
@@ -156,7 +228,7 @@ body {
   -webkit-box-shadow: 2px 0 50px -25px rgba(0, 0, 0, 0.8);
           box-shadow: 2px 0 50px -25px rgba(0, 0, 0, 0.8);
   background-image: url(../../../assets/bg-lines_adjusted.png);
-  -webkit-transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
-  transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  -webkit-transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
 }
 /*# sourceMappingURL=dashboard.css.map */
