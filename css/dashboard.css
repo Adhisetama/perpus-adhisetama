@@ -14,8 +14,8 @@ body hr {
 
 .main {
   margin-left: 300px;
-  -webkit-transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
-  transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  -webkit-transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -29,17 +29,22 @@ body hr {
   opacity: 0;
   cursor: pointer;
   z-index: 1;
-  -webkit-transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
-  transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  -webkit-transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+}
+
+.sidebar .side-profile p, .sidebar .side-main p {
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
 }
 
 #toggle-side:checked {
-  -webkit-transform: translateX(-200px);
-          transform: translateX(-200px);
+  -webkit-transform: translateX(-212px);
+          transform: translateX(-212px);
 }
 
 #toggle-side:checked ~ .main {
-  margin-left: 100px;
+  margin-left: 88px;
 }
 
 #toggle-side:checked ~ .main header .menu-toggle .elipsis2 {
@@ -51,8 +56,25 @@ body hr {
 }
 
 #toggle-side:checked ~ .sidebar {
-  width: 100px;
+  width: 88px;
   background-position-x: -100px;
+}
+
+#toggle-side:checked ~ .sidebar .side-main p {
+  animation: fade reverse 0.3s forwards;
+}
+
+#toggle-side:checked ~ .sidebar .side-main .fa-caret-down {
+  animation: fade reverse .3s forwards;
+}
+
+#toggle-side:checked ~ .sidebar .side-profile .name {
+  width: 0px;
+  opacity: 0;
+}
+
+#toggle-side:checked ~ .sidebar .side-header p {
+  animation: fade reverse 0.3s forwards;
 }
 
 .main header {
@@ -202,6 +224,10 @@ body hr {
   grid-area: cv2;
 }
 
+.card table tr td:first-child {
+  min-width: 120px;
+}
+
 .card table tr td {
   font: 300 14px Roboto, Helvetica, arial, sans-serif;
   font-size: 15px;
@@ -237,8 +263,8 @@ body hr {
   -webkit-box-shadow: 2px 0 50px -25px rgba(0, 0, 0, 0.8), inset -20px 0 7px 5px rgba(255, 255, 255, 0.3);
           box-shadow: 2px 0 50px -25px rgba(0, 0, 0, 0.8), inset -20px 0 7px 5px rgba(255, 255, 255, 0.3);
   background-image: url(../../../assets/bg-bloom_light.png);
-  -webkit-transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
-  transition: 0.4s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  -webkit-transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
+  transition: 0.5s cubic-bezier(0.29, -0.28, 0.38, 0.67) 5ms;
   padding: 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -271,7 +297,7 @@ body hr {
   color: #333;
 }
 
-.sidebar .side-profile .pic {
+.sidebar .side-profile div.pic {
   font-weight: 400;
   font-size: 18px;
   background-color: #eee;
@@ -283,81 +309,16 @@ body hr {
           box-shadow: 2px 8px 10px -5px rgba(100, 100, 100, 0.37);
 }
 
-.sidebar .side-profile p {
+.sidebar .side-profile div.name {
+  width: 250px;
   margin-left: 10px;
+  -webkit-transition: 0.3s 0.1s;
+  transition: 0.3s 0.1s;
+  overflow: hidden;
 }
 
 .sidebar .side-main {
   position: relative;
-}
-
-.sidebar .side-main div.hidden1, .sidebar .side-main div.hidden2 {
-  display: none;
-  opacity: 0;
-}
-
-.sidebar .side-main div.hidden1 > div, .sidebar .side-main div.hidden2 > div {
-  font-size: 15px;
-  margin: 0 7px;
-}
-
-.sidebar .side-main #menu1 {
-  position: absolute;
-  height: 50px;
-  width: 100%;
-  z-index: 1;
-  top: 57px;
-  opacity: 0;
-}
-
-.sidebar .side-main #menu1:hover ~ div.menu1 {
-  background-color: rgba(70, 70, 70, 0.1);
-}
-
-.sidebar .side-main #menu1:checked ~ .menu1 .fa-caret-down {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.sidebar .side-main #menu1:checked ~ div.hidden1 {
-  opacity: 1;
-  -webkit-animation: fade 0.7s forwards;
-          animation: fade 0.7s forwards;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.sidebar .side-main #menu1:checked ~ #menu2 {
-  -webkit-transform: translateY(180px);
-          transform: translateY(180px);
-}
-
-.sidebar .side-main #menu2 {
-  position: absolute;
-  height: 50px;
-  width: 100%;
-  z-index: 1;
-  top: 117px;
-  opacity: 0;
-}
-
-.sidebar .side-main #menu2:hover ~ div.menu2 {
-  background-color: rgba(70, 70, 70, 0.1);
-}
-
-.sidebar .side-main #menu2:checked ~ .menu2 .fa-caret-down {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.sidebar .side-main #menu2:checked ~ div.hidden2 {
-  opacity: 1;
-  -webkit-animation: fade 0.7s forwards;
-          animation: fade 0.7s forwards;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .sidebar .side-main > div.active {
@@ -379,6 +340,7 @@ body hr {
   border-radius: 5px;
   -webkit-transition: .4s .03s;
   transition: .4s .03s;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -415,6 +377,75 @@ body hr {
   background-color: rgba(70, 70, 70, 0.1);
 }
 
+.sidebar div.hidden1, .sidebar div.hidden2 {
+  display: none;
+  opacity: 0;
+}
+
+.sidebar div.hidden1 > div, .sidebar div.hidden2 > div {
+  font-size: 15px;
+  margin: 0 7px;
+}
+
+.sidebar #menu1 {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  z-index: 1;
+  top: 57px;
+  opacity: 0;
+}
+
+.sidebar #menu1:hover ~ div.menu1 {
+  background-color: rgba(70, 70, 70, 0.1);
+}
+
+.sidebar #menu1:checked ~ .menu1 .fa-caret-down {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.sidebar #menu1:checked ~ div.hidden1 {
+  opacity: 1;
+  -webkit-animation: fade 0.7s forwards;
+          animation: fade 0.7s forwards;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sidebar #menu1:checked ~ #menu2 {
+  -webkit-transform: translateY(180px);
+          transform: translateY(180px);
+}
+
+.sidebar #menu2 {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  z-index: 1;
+  top: 117px;
+  opacity: 0;
+}
+
+.sidebar #menu2:hover ~ div.menu2 {
+  background-color: rgba(70, 70, 70, 0.1);
+}
+
+.sidebar #menu2:checked ~ .menu2 .fa-caret-down {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.sidebar #menu2:checked ~ div.hidden2 {
+  opacity: 1;
+  -webkit-animation: fade 0.7s forwards;
+          animation: fade 0.7s forwards;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 @-webkit-keyframes fade {
   0% {
     opacity: 0;
@@ -430,6 +461,49 @@ body hr {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes squish {
+  0% {
+    width: -webkit-fit-content;
+    width: fit-content;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 0%;
+  }
+}
+
+@keyframes squish {
+  0% {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 0%;
+  }
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    display: inherit;
+  }
+  100% {
+    display: none;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    display: inherit;
+  }
+  100% {
+    display: none;
   }
 }
 
@@ -458,6 +532,12 @@ body hr {
   100% {
     opacity: 1;
     height: 50px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .card div.prime-cv table tr td, .card div.sec-cv table tr td {
+    font-size: 14px;
   }
 }
 /*# sourceMappingURL=dashboard.css.map */

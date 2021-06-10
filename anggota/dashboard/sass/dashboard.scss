@@ -8,7 +8,7 @@ $colors: (
 );
 $lightshadow: 0 1px 2px 1px rgba(30, 30, 30, .1);
 $boldshadow: 2px 8px 10px -5px;
-$transition1: .4s cubic-bezier(.29,-0.28,.38,.67) 5ms;
+$transition1: .5s cubic-bezier(.29,-0.28,.38,.67) 5ms;
 $fontsize-xl: 25px;
 $fontsize-l: 20px;
 $fontsize-m: 18px;
@@ -33,7 +33,7 @@ body {
     box-sizing: border-box;
 }
 
-// toggle trigger
+// toggle sidebar trigger
 #toggle-side {
     left: 325px;
     top: 17px;
@@ -45,18 +45,36 @@ body {
     z-index: 1;
     transition: $transition1;
 }
+.sidebar {
+    .side-profile p, .side-main p {
+        transition-delay: .4s;
+    }
+}
 #toggle-side:checked {
-    transform: translateX(-200px);
+    transform: translateX(-212px);
     ~ .main {
         header .menu-toggle {
             .elipsis2 {display: block;}
             .elipsis1 {display: none;}
         }
-        margin-left: 100px;
+        margin-left: 88px;
     }
     ~ .sidebar {
-        width: 100px;
+        width: 88px;
         background-position-x: -100px;
+        .side-main {
+            p {animation: fade reverse 0.3s forwards;}
+            .fa-caret-down {animation: fade reverse .3s forwards;}
+            // display: none;
+            //overflow: hidden;
+        }
+        .side-profile .name {
+            width: 0px;
+            opacity: 0;
+        }
+        .side-header p {
+            animation: fade reverse 0.3s forwards;
+        }
     }
 }
 
@@ -140,51 +158,54 @@ body {
             color: white;
             box-shadow: $boldshadow #00bbd46c;
         }
-
+        
     }
-
+    
     .card-content {
         margin: 25px 10px;
         display: grid;
         grid-template-columns: 1fr repeat(2, 2.5fr);
 		grid-template-rows: 50px auto;
         grid-template-areas:
-			'pic header header'
+        'pic header header'
 			'pic cv1 cv2';
-        .profpic {
-			grid-area: pic;
-            width: 90%;
-            height: 100%;
-            background-color: map-get($colors, 'lightgray');
-            border-radius: 5px;
+            .profpic {
+                grid-area: pic;
+                width: 90%;
+                height: 100%;
+                background-color: map-get($colors, 'lightgray');
+                border-radius: 5px;
 			box-shadow: $boldshadow rgba(0,0,0,.2);
 			background-image: url(../../../assets/perpustakaan.jpg);
         }
 		.cv-head {
-			grid-area: header;
+            grid-area: header;
 			font: $def-font;
 			font-size: $fontsize-xl;
 		}
 		.prime-cv {
-			grid-area: cv1;
+            grid-area: cv1;
 		}
 		.sec-cv {
-			grid-area: cv2;
+            grid-area: cv2;
 		}
 	}
 	table tr {
+        td:first-child {
+            min-width: 120px;
+        }
 		td {
-			font: $def-font;
+            font: $def-font;
 			font-size: $fontsize-s;
 			color: map-get($colors, 'darkfont');
 			padding: 5px;
 			text-transform: capitalize;
 		}
-//  custom cell color
+        //  custom cell color
 		td.td-blue {color: map-get($colors, 'blue');}
 		td.td-red {color: red;}
 		td .aktif {
-			font-weight: 700;
+            font-weight: 700;
 			color: white;
 			font-size: 10px;
 			background-color: rgb(77, 173, 77);
@@ -225,7 +246,7 @@ body {
         align-items: center;
         font: $def-font;
         color: map-get($colors, 'darkfont');
-        .pic {
+        div.pic {
             font-weight: 400;
             font-size: $fontsize-m;
             background-color: map-get($colors, 'lightgray');
@@ -235,70 +256,14 @@ body {
             overflow: hidden;
             box-shadow: $boldshadow rgba(100, 100, 100, 0.37);
         }
-        p {
+        div.name {
+            width: 250px;
             margin-left: 10px;
+            transition: 0.3s 0.1s;
+            overflow: hidden;
         }
     }
     .side-main {
-        // FOR TOGGLES PURPOSE: HIDDEN MENU BAR
-            // menu 1
-        div.hidden1, div.hidden2 {
-            > div {
-                font-size: $fontsize-s;
-                margin: 0 7px;
-            }
-            display: none;
-            opacity: 0;
-        }
-        #menu1 {
-            position: absolute;
-            height: 50px;
-            width: 100%;
-            z-index: 1;
-            top: 57px;
-            opacity: 0;
-        }
-        #menu1:hover ~ div.menu1 {
-            background-color: rgba(70, 70, 70, 0.1);
-        }
-        #menu1:checked {
-            ~ .menu1 .fa-caret-down {
-                transform: rotate(180deg);
-            }
-            ~ div.hidden1 {
-                opacity: 1;
-                animation: fade 0.7s forwards;
-                display: flex;
-                //animation: h-menu-1 .4s linear 5ms forwards;
-            }
-            ~ #menu2 {
-                transform: translateY(180px);
-            }
-        }
-            // menu 2
-        #menu2 {
-            position: absolute;
-            height: 50px;
-            width: 100%;
-            z-index: 1;
-            top: 117px;
-            opacity: 0;
-        }
-        #menu2:hover ~ div.menu2 {
-            background-color: rgba(70, 70, 70, 0.1);
-        }
-        #menu2:checked {
-            ~ .menu2 .fa-caret-down {
-                transform: rotate(180deg);
-            }
-            ~ div.hidden2 {
-                opacity: 1;
-                animation: fade 0.7s forwards;
-                display: flex;
-                //animation: h-menu-1 .4s linear 5ms forwards;
-            }
-        }
-        // ANIMATED TOGGLES END
         position: relative;
         > div.active {
             background-color: map-get($colors, 'blue');
@@ -320,6 +285,7 @@ body {
             box-sizing: border-box;
             border-radius: 5px;
             transition: .4s .03s;
+            overflow: hidden;
             p {
                 margin-left: 20px;
                 font: $def-font;
@@ -341,6 +307,67 @@ body {
             background-color: rgba(70, 70, 70, 0.1);
         }
     }
+    
+        // FOR TOGGLES PURPOSE: HIDDEN MENU BAR
+        // menu 1
+        div.hidden1, div.hidden2 {
+                > div {
+                    font-size: $fontsize-s;
+                    margin: 0 7px;
+                }
+                display: none;
+                opacity: 0;
+        }
+        #menu1 {
+                position: absolute;
+                height: 50px;
+                width: 100%;
+                z-index: 1;
+                top: 57px;
+                opacity: 0;
+        }
+        #menu1:hover ~ div.menu1 {
+                background-color: rgba(70, 70, 70, 0.1);
+        }
+        #menu1:checked {
+                ~ .menu1 .fa-caret-down {
+                    transform: rotate(180deg);
+                }
+                ~ div.hidden1 {
+                    opacity: 1;
+                    animation: fade 0.7s forwards;
+                    display: flex;
+                    //animation: h-menu-1 .4s linear 5ms forwards;
+                }
+                ~ #menu2 {
+                    transform: translateY(180px);
+                }
+        }
+        // menu 2
+        #menu2 {
+                position: absolute;
+                height: 50px;
+                width: 100%;
+                z-index: 1;
+                top: 117px;
+                opacity: 0;
+        }
+        #menu2:hover ~ div.menu2 {
+                background-color: rgba(70, 70, 70, 0.1);
+        }
+        #menu2:checked {
+                ~ .menu2 .fa-caret-down {
+                    transform: rotate(180deg);
+                }
+                ~ div.hidden2 {
+                    opacity: 1;
+                    animation: fade 0.7s forwards;
+                    display: flex;
+                    //animation: h-menu-1 .4s linear 5ms forwards;
+                }
+        }
+        // ANIMATED TOGGLES END
+            
 }
 
 
@@ -350,6 +377,26 @@ body {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes squish {
+    0% {
+        width: fit-content;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 0%; 
+    }
+}
+
+@keyframes disappear {
+    0% {
+        display: inherit;
+    }
+    100% {
+        display: none;
     }
 }
 // abandoned animation, dont mind
@@ -364,5 +411,16 @@ body {
     100% {
         opacity: 1;
         height: 50px;
+    }
+}
+
+// responsive media
+@media only screen and (max-width:1300px) {
+    .card{
+        div.prime-cv, div.sec-cv {
+            table tr td {
+                font-size: 14px;
+            }
         }
     }
+}
