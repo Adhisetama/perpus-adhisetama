@@ -12,7 +12,7 @@
     <title>Perpustakaan Adhisetama</title>
         <!-- font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
         <!-- icon library -->
     <script src="https://kit.fontawesome.com/bf48535794.js" crossorigin="anonymous"></script>
@@ -104,7 +104,7 @@
 								</tr>
 								<tr>
 									<td>angkatan lulus</td>
-									<td>: <span>2021</span></td>
+									<td>: 2021</td>
 								</tr>
 								<tr>
 									<td>pekerjaan</td>
@@ -121,7 +121,57 @@
             </div>
         </div>
         <div class="sidebar" id="sidebar">
-            
+            <div class="side-header">
+				<h2>DS</h2>
+				<p>Dashboard Anggota</p>
+			</div>
+			<hr/>
+			<div class="side-profile">
+				<div class="pic flex-center">AA</div>
+				<p>Azka Adhisetama</p>
+			</div>
+			<hr/>
+			<div class="side-main">
+				<!-- toggle checkboxes -->
+					<input type="checkbox" name="menu1" id="menu1">
+				<!-- toggle checkboxes end -->
+				<div class="active">
+					<div class="flex-center"><i class="fas fa-user"></i></div>
+					<p>Dashboard</p>
+				</div>
+				<div class="inactive menu1">
+					<div class="flex-center"><i class="fas fa-book-open"></i></div>
+					<p>Pustaka Cetak</p>
+					<i class="fas fa-caret-down"></i>
+				</div>
+				<!-- hidden menu bar 1 -->
+					<div class="inactive hidden1">
+						<div class="flex-center"><i class="fas fa-book-open"></i></div>
+						<p></p>
+					</div>
+					<div class="inactive hidden1">
+						<div class="flex-center"><i class="fas fa-book-open"></i></div>
+						<p></p>
+					</div>
+					<div class="inactive hidden1">
+						<div class="flex-center"><i class="fas fa-book-open"></i></div>
+						<p></p>
+					</div>
+				<!-- hidden menu bar 1 end -->
+				<div class="inactive menu2">
+					<div class="flex-center"><i class="fas fa-desktop"></i></div>
+					<p>Pustaka Digital</p>
+					<i class="fas fa-caret-down"></i>
+				</div>
+				<div class="inactive">
+					<div class="flex-center"><i class="fas fa-comment"></i></div>
+					<p>Usul Pengadaan</p>
+				</div>
+				<div class="inactive">
+					<div class="flex-center"><i class="fas fa-home"></i></div>
+					<p>Home</p>
+				</div>
+			</div>
         </div>
     </div>
 </body>

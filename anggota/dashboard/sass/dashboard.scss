@@ -12,12 +12,19 @@ $transition1: .4s cubic-bezier(.29,-0.28,.38,.67) 5ms;
 $fontsize-xl: 25px;
 $fontsize-l: 20px;
 $fontsize-m: 18px;
-$fontsize-s: 14px;
+$fontsize-s: 15px;
 
 body {
+    hr {
+        background-color: map-get($colors, 'lightgray');
+        height: 1px;
+        border: none;
+        margin: 20px auto;
+    }
     background-color: map-get($colors, 'lightgray');
     font: $def-font;
     color: map-get($colors, 'darkfont');
+    overflow-x: hidden;
 }
 
 .main {
@@ -189,12 +196,124 @@ body {
 
 // sidebar
 .sidebar {
+    overflow: hidden;
     width: 300px;
     background-color: white;
     position: fixed;
     top: 0;
     bottom: 0;
-    box-shadow: 2px 0 50px -25px rgba(0,0,0,.8);
-    background-image: url(../../../assets/bg-lines_adjusted.png);
+    box-shadow: 2px 0 50px -25px rgba(0,0,0,.8), inset -20px 0 7px 5px rgba(255, 255, 255, 0.3);
+    background-image: url(../../../assets/bg-bloom_light.png);
     transition: $transition1;
+    padding: 15px;
+    box-sizing: border-box;
+    .side-header {
+        font: $def-font;
+        h2 {            
+            font-weight: 400;
+            font-size: $fontsize-xl;
+            color: map-get($colors, 'darkfont');
+            margin: 10px 5px;
+        }
+        p {
+            font-size: $fontsize-m;
+            color: map-get($colors, 'gray');
+        }
+    }
+    .side-profile {
+        display: flex;
+        align-items: center;
+        font: $def-font;
+        color: map-get($colors, 'darkfont');
+        .pic {
+            font-weight: 400;
+            font-size: $fontsize-m;
+            background-color: map-get($colors, 'lightgray');
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: $boldshadow rgba(100, 100, 100, 0.37);
+        }
+        p {
+            margin-left: 10px;
+        }
+    }
+    .side-main {
+        // FOR TOGGLES PURPOSE: HIDDEN MENU BAR
+        div.hidden1 {
+            display: none;
+            opacity: 0;
+        }
+        #menu1 {
+            position: absolute;
+            height: 50px;
+            width: 100%;
+            z-index: 1;
+            top: 57px;
+            opacity: 0;
+        }
+        #menu1:hover ~ div.menu1 {
+            background-color: rgba(70, 70, 70, 0.1);
+        }
+        #menu1:checked ~ div.hidden1 {
+            opacity: 1;
+            display: block;
+            //animation: h-menu-1 .4s linear 5ms forwards;
+        }
+        // ANIMATED TOGGLES END
+        position: relative;
+        > div.active {
+            background-color: map-get($colors, 'blue');
+            p, div {
+                color: white;
+            }
+        }
+        > div {
+            .fa-caret-down {
+                position: absolute;
+                right: 20px;
+            }
+            position: relative;
+            cursor: pointer;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            transition: .4s .05s;
+            p {
+                margin-left: 20px;
+                font: $def-font;
+                font-size: $fontsize-s;
+                color: map-get($colors, "darkfont");
+            }
+            > div {
+                width: 20px;
+                margin: 0 10px;
+                font-size: $fontsize-l;
+                color: map-get($colors, 'gray');
+            }
+            display: flex;
+            align-items: center;
+            height: 50px;
+            margin: 10px auto;
+        }
+        > div.inactive:hover {
+            background-color: rgba(70, 70, 70, 0.1);
+        }
+    }
 }
+
+// abandoned animation, dont mind
+@keyframes h-menu-1 {
+    0% {
+        height: 0;
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        height: 50px;
+        }
+    }
