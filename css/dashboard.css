@@ -291,9 +291,14 @@ body hr {
   position: relative;
 }
 
-.sidebar .side-main div.hidden1 {
+.sidebar .side-main div.hidden1, .sidebar .side-main div.hidden2 {
   display: none;
   opacity: 0;
+}
+
+.sidebar .side-main div.hidden1 > div, .sidebar .side-main div.hidden2 > div {
+  font-size: 15px;
+  margin: 0 7px;
 }
 
 .sidebar .side-main #menu1 {
@@ -309,13 +314,56 @@ body hr {
   background-color: rgba(70, 70, 70, 0.1);
 }
 
+.sidebar .side-main #menu1:checked ~ .menu1 .fa-caret-down {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 .sidebar .side-main #menu1:checked ~ div.hidden1 {
   opacity: 1;
-  display: block;
+  -webkit-animation: fade 0.7s forwards;
+          animation: fade 0.7s forwards;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sidebar .side-main #menu1:checked ~ #menu2 {
+  -webkit-transform: translateY(180px);
+          transform: translateY(180px);
+}
+
+.sidebar .side-main #menu2 {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  z-index: 1;
+  top: 117px;
+  opacity: 0;
+}
+
+.sidebar .side-main #menu2:hover ~ div.menu2 {
+  background-color: rgba(70, 70, 70, 0.1);
+}
+
+.sidebar .side-main #menu2:checked ~ .menu2 .fa-caret-down {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.sidebar .side-main #menu2:checked ~ div.hidden2 {
+  opacity: 1;
+  -webkit-animation: fade 0.7s forwards;
+          animation: fade 0.7s forwards;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .sidebar .side-main > div.active {
   background-color: #00bcd4;
+  -webkit-box-shadow: 2px 8px 10px -5px #00bbd46c;
+          box-shadow: 2px 8px 10px -5px #00bbd46c;
 }
 
 .sidebar .side-main > div.active p, .sidebar .side-main > div.active div {
@@ -329,8 +377,8 @@ body hr {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 5px;
-  -webkit-transition: .4s .05s;
-  transition: .4s .05s;
+  -webkit-transition: .4s .03s;
+  transition: .4s .03s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -344,6 +392,9 @@ body hr {
 .sidebar .side-main > div .fa-caret-down {
   position: absolute;
   right: 20px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #333;
 }
 
 .sidebar .side-main > div p {
@@ -362,6 +413,24 @@ body hr {
 
 .sidebar .side-main > div.inactive:hover {
   background-color: rgba(70, 70, 70, 0.1);
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes h-menu-1 {
