@@ -9,10 +9,21 @@ $colors: (
 $lightshadow: 0 1px 2px 1px rgba(30, 30, 30, .1);
 $boldshadow: 2px 8px 10px -5px;
 $transition1: .5s cubic-bezier(.29,-0.28,.38,.67) 5ms;
+$transition2: .5s cubic-bezier(.83,.51,.64,1.14) 5ms;
+$transitionburger: .4s cubic-bezier(.71,.79,.68,1.51) .2s;
 $fontsize-xl: 25px;
 $fontsize-l: 20px;
 $fontsize-m: 18px;
 $fontsize-s: 15px;
+
+    // lightbox untuk efek sidebar toggle di media query mobile, ignore it
+    .lightbox {
+        z-index: 1;
+        position: absolute;
+        top: 0;right: 0;
+        background-color: rgba(0,0,0,.3);
+        opacity: 0;
+    }
 
 body {
     hr {
@@ -80,6 +91,12 @@ body {
 
 // main content - header
 .main header {
+    // burger for media query purposes
+    .burger {
+        display: none;
+        div {transition: $transitionburger;}
+    }
+    
     padding: 20px 30px;
     position: relative;
     .menu-toggle {
@@ -257,7 +274,7 @@ body {
             box-shadow: $boldshadow rgba(100, 100, 100, 0.37);
         }
         div.name {
-            width: 250px;
+            width: 230px;
             margin-left: 10px;
             transition: 0.3s 0.1s;
             overflow: hidden;
@@ -399,7 +416,21 @@ body {
         display: none;
     }
 }
-// abandoned animation, dont mind
+
+@keyframes lightbox {
+    0% {
+        top: 0;
+        right: 0;
+    }
+    100% {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+    
+}
+// abandoned animation
 @keyframes h-menu-1 {
     0% {
         height: 0;
@@ -420,6 +451,102 @@ body {
         div.prime-cv, div.sec-cv {
             table tr td {
                 font-size: 14px;
+            }
+        }
+    }
+}
+
+// media query for tablets (non-laptop)
+@media only screen and (max-width:1100px) {
+    #toggle-side {
+        z-index: 2;
+        transition: $transition2;
+        height: 30px;
+        width: 30px;
+        margin: 0;
+        left: auto;
+        right: 28px;
+        top: 18px;
+    }
+    
+    .main {
+        transition: $transition2;
+        margin: 0;
+        header {
+            .burger {
+                transition: $transition2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                div {
+                    border-radius: 2px;
+                    margin: 2px auto;
+                    height: 4px;
+                    width: 25px;
+                    background-color: map-get($colors, 'darkfont');
+                }
+            }
+            .title {
+                padding: 0;
+            }
+            .quit, .menu-toggle {
+                display: none;
+            }
+        }
+        .card {
+            div.prime-cv, div.sec-cv {
+                font-size: 13px;
+            }
+            table td:first-child {
+                min-width: 100px;
+            }
+            .card-content {
+                grid-template-columns: 1fr 1.9 1.8;
+            }
+        }
+    }
+    .sidebar {
+        z-index: 999;
+        transition: $transition2;
+        margin-right: -300px;
+        right: 0;
+        left: auto;
+    }
+    // animations
+#toggle-side:checked ~ .lightbox {color: red;}
+
+    #toggle-side:checked {
+        transform: translateX(-300px);
+        ~ .lightbox {
+            bottom: 0;left: 0;
+            animation: fade .25s .4s ease-out forwards;
+        }
+        ~ .main {
+            transform: translateX(-300px);
+            margin-left: 0px;
+            header .burger {
+                .bar1 {transform: rotate(225deg) translateY(-11px); width: 30px;}
+                .bar2 {opacity: 0;}
+                .bar3 {transform: rotate(-225deg) translateY(12px); width: 30px;}
+            }
+        }
+        ~ .sidebar {
+            margin-right: 0;
+            width: 300px;
+            background-position-x: 0px;
+            .side-main {
+                p {animation: fade normal 0.3s forwards;}
+                .fa-caret-down {animation: fade normal .3s forwards;}
+                // display: none;
+                //overflow: hidden;
+            }
+            .side-profile .name {
+                width: 150px;
+                opacity: 1;
+            }
+            .side-header p {
+                animation: fade normal 0.3s forwards;
             }
         }
     }

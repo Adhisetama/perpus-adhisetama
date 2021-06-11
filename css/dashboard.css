@@ -1,3 +1,12 @@
+.lightbox {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+}
+
 body {
   background-color: #eee;
   font: 300 14px Roboto, Helvetica, arial, sans-serif;
@@ -80,6 +89,15 @@ body hr {
 .main header {
   padding: 20px 30px;
   position: relative;
+}
+
+.main header .burger {
+  display: none;
+}
+
+.main header .burger div {
+  -webkit-transition: 0.4s cubic-bezier(0.71, 0.79, 0.68, 1.51) 0.2s;
+  transition: 0.4s cubic-bezier(0.71, 0.79, 0.68, 1.51) 0.2s;
 }
 
 .main header .menu-toggle {
@@ -310,7 +328,7 @@ body hr {
 }
 
 .sidebar .side-profile div.name {
-  width: 250px;
+  width: 230px;
   margin-left: 10px;
   -webkit-transition: 0.3s 0.1s;
   transition: 0.3s 0.1s;
@@ -507,6 +525,32 @@ body hr {
   }
 }
 
+@-webkit-keyframes lightbox {
+  0% {
+    top: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+@keyframes lightbox {
+  0% {
+    top: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
 @-webkit-keyframes h-menu-1 {
   0% {
     height: 0;
@@ -538,6 +582,125 @@ body hr {
 @media only screen and (max-width: 1300px) {
   .card div.prime-cv table tr td, .card div.sec-cv table tr td {
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  #toggle-side {
+    z-index: 2;
+    -webkit-transition: 0.5s cubic-bezier(0.83, 0.51, 0.64, 1.14) 5ms;
+    transition: 0.5s cubic-bezier(0.83, 0.51, 0.64, 1.14) 5ms;
+    height: 30px;
+    width: 30px;
+    margin: 0;
+    left: auto;
+    right: 28px;
+    top: 18px;
+  }
+  .main {
+    -webkit-transition: 0.5s cubic-bezier(0.83, 0.51, 0.64, 1.14) 5ms;
+    transition: 0.5s cubic-bezier(0.83, 0.51, 0.64, 1.14) 5ms;
+    margin: 0;
+  }
+  .main header .burger {
+    -webkit-transition: 0.5s cubic-bezier(0.83, 0.51, 0.64, 1.14) 5ms;
+    transition: 0.5s cubic-bezier(0.83, 0.51, 0.64, 1.14) 5ms;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .main header .burger div {
+    border-radius: 2px;
+    margin: 2px auto;
+    height: 4px;
+    width: 25px;
+    background-color: #333;
+  }
+  .main header .title {
+    padding: 0;
+  }
+  .main header .quit, .main header .menu-toggle {
+    display: none;
+  }
+  .main .card div.prime-cv, .main .card div.sec-cv {
+    font-size: 13px;
+  }
+  .main .card table td:first-child {
+    min-width: 100px;
+  }
+  .main .card .card-content {
+    -ms-grid-columns: 1fr 1.9 1.8;
+        grid-template-columns: 1fr 1.9 1.8;
+  }
+  .sidebar {
+    z-index: 999;
+    -webkit-transition: 0.5s cubic-bezier(0.83, 0.51, 0.64, 1.14) 5ms;
+    transition: 0.5s cubic-bezier(0.83, 0.51, 0.64, 1.14) 5ms;
+    margin-right: -300px;
+    right: 0;
+    left: auto;
+  }
+  #toggle-side:checked ~ .lightbox {
+    color: red;
+  }
+  #toggle-side:checked {
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+  #toggle-side:checked ~ .lightbox {
+    bottom: 0;
+    left: 0;
+    -webkit-animation: fade .25s .4s ease-out forwards;
+            animation: fade .25s .4s ease-out forwards;
+  }
+  #toggle-side:checked ~ .main {
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+    margin-left: 0px;
+  }
+  #toggle-side:checked ~ .main header .burger .bar1 {
+    -webkit-transform: rotate(225deg) translateY(-11px);
+            transform: rotate(225deg) translateY(-11px);
+    width: 30px;
+  }
+  #toggle-side:checked ~ .main header .burger .bar2 {
+    opacity: 0;
+  }
+  #toggle-side:checked ~ .main header .burger .bar3 {
+    -webkit-transform: rotate(-225deg) translateY(12px);
+            transform: rotate(-225deg) translateY(12px);
+    width: 30px;
+  }
+  #toggle-side:checked ~ .sidebar {
+    margin-right: 0;
+    width: 300px;
+    background-position-x: 0px;
+  }
+  #toggle-side:checked ~ .sidebar .side-main p {
+    -webkit-animation: fade normal 0.3s forwards;
+            animation: fade normal 0.3s forwards;
+  }
+  #toggle-side:checked ~ .sidebar .side-main .fa-caret-down {
+    -webkit-animation: fade normal .3s forwards;
+            animation: fade normal .3s forwards;
+  }
+  #toggle-side:checked ~ .sidebar .side-profile .name {
+    width: 150px;
+    opacity: 1;
+  }
+  #toggle-side:checked ~ .sidebar .side-header p {
+    -webkit-animation: fade normal 0.3s forwards;
+            animation: fade normal 0.3s forwards;
   }
 }
 /*# sourceMappingURL=dashboard.css.map */
