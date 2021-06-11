@@ -703,4 +703,37 @@ body hr {
             animation: fade normal 0.3s forwards;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .main .card .card-content {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 300px (auto)[3];
+        grid-template-rows: 300px repeat(3, auto);
+        grid-template-areas: 'pic' 'header' 'cv1' 'cv2';
+  }
+  .main .card .card-content .profpic {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: pic;
+    width: 100%;
+    margin: auto;
+  }
+  .main .card .card-content .cv-head {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: header;
+    margin: 20px 0;
+  }
+  .main .card .card-content .prime-cv {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: cv1;
+  }
+  .main .card .card-content .sec-cv {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: cv2;
+  }
+}
 /*# sourceMappingURL=dashboard.css.map */

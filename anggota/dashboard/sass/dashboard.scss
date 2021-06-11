@@ -185,13 +185,13 @@ body {
 		grid-template-rows: 50px auto;
         grid-template-areas:
         'pic header header'
-			'pic cv1 cv2';
-            .profpic {
-                grid-area: pic;
-                width: 90%;
-                height: 100%;
-                background-color: map-get($colors, 'lightgray');
-                border-radius: 5px;
+		'pic cv1 cv2';
+        .profpic {
+            grid-area: pic;
+            width: 90%;
+            height: 100%;
+            background-color: map-get($colors, 'lightgray');
+            border-radius: 5px;
 			box-shadow: $boldshadow rgba(0,0,0,.2);
 			background-image: url(../../../assets/perpustakaan.jpg);
         }
@@ -547,6 +547,35 @@ body {
             }
             .side-header p {
                 animation: fade normal 0.3s forwards;
+            }
+        }
+    }
+}
+
+
+// media query for mobile (phone)
+@media only screen and (max-width:768px) {
+    .main {
+        .card {
+            .card-content {
+                grid-template-columns: 1fr;
+                grid-template-rows: 300px repeat(3, auto);
+                grid-template-areas:
+                    'pic'
+                    'header'
+                    'cv1'
+                    'cv2';
+                .profpic {
+                    grid-area: pic;
+                    width: 100%;
+                    margin: auto;
+                }
+                .cv-head {
+                    grid-area: header;
+                    margin: 20px 0;
+                }
+                .prime-cv {grid-area: cv1;}
+                .sec-cv {grid-area: cv2;}
             }
         }
     }
